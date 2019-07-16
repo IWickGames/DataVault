@@ -44,12 +44,7 @@ goto start
 
 :update
 cls
-plugins\wget.exe "https://github.com/IWickGames/DataVault/archive/master.zip"
-plugins\7za.exe x "master.zip"
-del /q /f "DataVault.bat"
-move "DataVault-master\DataVault\DataVault.bat" ""
-rd /s /q "DataVault-master"
-del /q /f "master.zip"
+start "" "update.bat"
 exit
 
 :login
