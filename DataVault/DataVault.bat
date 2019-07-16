@@ -31,14 +31,26 @@ echo ======================
 echo.
 echo [1] Login
 echo [2] Create a new account
+echo [3] Update DataVault
 echo.
 set /p enter="Select One>"
 if %enter%==1 goto login
 if %enter%==2 goto newuser
+if %enter%==3 goto update
 echo.
 echo Error: %enter% is not a option please select from one of the above options
 timeout /nobreak 5 >nul
 goto start
+
+:update
+cls
+plugins\wget.exe "https://github.com/IWickGames/DataVault/archive/master.zip"
+plugins\7za.exe x "master.zip"
+del /q /f "DataVault.bat"
+move "DataVault-master\DataVault\DataVault.bat" ""
+rd /s /q "DataVault-master"
+del /q /f "master.zip"
+exit
 
 :login
 cls
